@@ -1,0 +1,80 @@
+/* client-box · styles. Uses the host site's tokens when present (--fg, --bg, --bg-soft, --line, --muted,
+   --accent, --blueprint, --sans, --mono) and falls back to its own, so it reads fine on any site. */
+.client-box { --fg: var(--fg, #1D2140); --bg: var(--bg, #E7E5D9); --bg-soft: var(--bg-soft, #F1EFE6); --line: var(--line, rgba(29,33,64,.16)); --muted: var(--muted, #8A93B4); --accent: var(--accent, #D31A63); --blueprint: var(--blueprint, #3C4A85); --amber: #D48F1C; --sans: var(--sans, system-ui, sans-serif); --mono: var(--mono, ui-monospace, Menlo, monospace); color: var(--fg); font-family: var(--sans); }
+.client-box section { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.client-box h2 { font-family: var(--sans); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.01em; margin: 0 0 0.6rem; color: var(--fg); }
+.client-box .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  background: linear-gradient(120deg, rgba(242,196,106,.55) 0%, rgba(242,196,106,.22) 45%, rgba(211,26,99,.08) 100%); }
+  .client-box .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .client-box .note { font-size: 14px; color: var(--muted); margin: 0 0 0.6rem; }
+  .client-box .note.bad { color: var(--accent); }
+  .client-box .none { color: var(--muted); }
+  .client-box .tag { font-family: var(--mono); font-size: 11px; padding: 0 0.45rem; border: 1px solid var(--line); border-radius: 3px; background: var(--bg-soft); color: var(--blueprint); }
+  .client-box .tag--owner { color: var(--accent); border-color: var(--accent); }
+  .todos { list-style: none; margin: 0; padding: 0; }
+  .todo { padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+  .todo { position: relative; padding-right: 2.2rem; }
+  .todo__del { position: absolute; top: 0.35rem; right: -0.4rem; width: 2.75rem; height: 2.75rem; font: 22px/1 var(--sans); color: var(--muted); background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; touch-action: manipulation; }
+  .todo.confirming .todo__del { color: var(--accent); }
+  .todo { padding-right: 5rem; }
+  .todo__ed { position: absolute; top: 0.35rem; right: 2.3rem; width: 2.75rem; height: 2.75rem; font: 18px/1 var(--sans); color: var(--muted); background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; touch-action: manipulation; }
+  .todo__ed:hover, .todo__ed:focus-visible, .todo.editing .todo__ed { color: var(--blueprint); border-color: var(--blueprint); }
+  .todo__ed:disabled { visibility: hidden; }
+  .todo__edit { display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; margin: 0.6rem 0 0.1rem 1.85rem; padding: 0.6rem 0.7rem; background: rgba(60,74,133,.07); border-left: 3px solid var(--blueprint); }
+  .todo__edit input { flex: 1 1 100%; min-height: 2.75rem; font: 16px var(--sans); color: var(--fg); background: var(--bg); border: 1px solid var(--line); padding: 0 0.7rem; }
+  .cbtn--save { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+  .notes__to { color: var(--blueprint); }
+  .todo__confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 0.6rem 0 0.1rem 1.85rem; padding: 0.6rem 0.7rem; background: rgba(211,26,99,.07); border-left: 3px solid var(--accent); font-size: 14px; }
+  .todo__confirm span { flex: 1 1 100%; color: var(--fg); }
+  .cbtn { min-height: 2.75rem; min-width: 6rem; font: 500 13px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--fg); background: var(--bg-soft); color: var(--fg); padding: 0 1rem; cursor: pointer; touch-action: manipulation; }
+  .cbtn--yes { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .cbtn:disabled { opacity: 0.6; }
+  @media (min-width: 640px) { .todo__confirm span { flex: 0 1 auto; } }
+  .todo__del:hover, .todo__del:focus-visible { color: var(--accent); border-color: var(--accent); }
+  .todo__del:disabled { visibility: hidden; }
+  .notes__jobs { margin: 0 0 0.6rem; }
+  .todo label { display: flex; gap: 0.7rem; align-items: flex-start; cursor: pointer; }
+  .todo input { width: 1.15rem; height: 1.15rem; margin: 0.2rem 0 0; accent-color: var(--accent); flex: none; }
+  .todo__text { max-width: 60ch; }
+  .todo.is-done .todo__text { text-decoration: line-through; color: var(--muted); }
+  .todo__meta { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; margin: 0.35rem 0 0 1.85rem; font-size: 11.5px; color: var(--muted); }
+  .notes-box textarea { width: 100%; font: 15px/1.5 var(--sans); color: var(--fg); background: var(--bg-soft); border: 1px solid var(--line); padding: 0.75rem 0.9rem; resize: vertical; }
+  .notes-box textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .howto { margin: 0 0 0.8rem; border: 1px solid var(--line); background: var(--bg-soft); padding: 0.2rem 0.9rem 0.6rem; }
+  .howto summary { cursor: pointer; font: 500 12px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blueprint); padding: 0.7rem 0 0.5rem; }
+  .howto__tap { margin: 0 0 0.5rem; font-size: 13px; color: var(--muted); }
+  .howto__list { margin: 0; display: grid; gap: 0.8rem; }
+  .howto__list dt { font: 600 15px var(--sans); color: var(--fg); }
+  .howto__list dd { margin: 0.15rem 0 0; font-size: 14px; max-width: 62ch; }
+  .ex { display: block; margin: 0.4rem 0 0; padding: 0.55rem 0.75rem; min-height: 2.75rem; width: 100%; max-width: 40rem; text-align: left; font: 14px/1.4 var(--sans); font-style: italic; color: var(--fg); background: var(--bg); border: 1px dashed var(--blueprint); border-radius: 4px; cursor: pointer; touch-action: manipulation; }
+  .ex::before { content: '“'; } .ex::after { content: '”'; }
+  .ex:hover, .ex:focus-visible { border-style: solid; }
+  .nbtn--photo { display: inline-flex; align-items: center; }
+  .photos { margin-top: 1.4rem; }
+  .photos h3 { font: 600 15px var(--sans); margin: 0 0 0.5rem; }
+  .photos__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.6rem; }
+  .photo { position: relative; }
+  .photo a { display: block; aspect-ratio: 1; background: var(--bg-soft); border: 1px solid var(--line); overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo__at { display: block; font: 11px var(--mono); color: var(--muted); margin-top: 0.2rem; }
+  .photo__del { position: absolute; top: 0.25rem; right: 0.25rem; width: 2.5rem; height: 2.5rem; font: 20px/1 var(--sans); color: #fff; background: rgba(29,33,64,.6); border: 0; border-radius: 50%; cursor: pointer; touch-action: manipulation; }
+  .photo__confirm { display: grid; gap: 0.4rem; margin-top: 0.4rem; }
+  .photo__confirm .cbtn { min-width: 0; width: 100%; }
+  .notes__actions { display: flex; flex-wrap: wrap; gap: 0.5rem 0.7rem; align-items: center; margin: 0.6rem 0 0; }
+  .nbtn { font: 500 12px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); background: var(--bg-soft); border: 1px solid var(--fg); padding: 0.5rem 0.9rem; cursor: pointer; }
+  .nbtn--main { background: var(--fg); color: var(--bg); }
+  .nbtn:hover, .nbtn:focus-visible { border-color: var(--accent); }
+  .nbtn:disabled { opacity: 0.5; cursor: default; }
+  .notes__status { flex: 1 0 100%; font-size: 13px; color: var(--muted); }
+  .notes__status:empty { display: none; }
+  .notes__status.bad { color: var(--accent); }
+  .notes__preview { margin-top: 1rem; padding: 0.9rem 1rem; border-left: 3px solid var(--amber); background: rgba(242,196,106,.16); }
+  .notes__saved { margin-top: 1.4rem; padding: 0.9rem 1rem 0.8rem; border-left: 3px solid var(--amber); background: rgba(242,196,106,.12); }
+  .notes__saved > h3:first-child { font: 600 15px var(--sans); margin: 0 0 0.4rem; }
+  .notes__label { font: 500 10px var(--mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.4rem; }
+  .notes__preview h3, .notes__saved h3 { font: 600 15px var(--sans); margin: 0.6rem 0 0.2rem; color: var(--fg); }
+  .notes__preview ul, .notes__saved ul { margin: 0.2rem 0 0.4rem; padding-left: 1.2rem; }
+  .notes__preview li, .notes__saved li { margin: 0.15rem 0; max-width: 62ch; }
+  .notes__raw { white-space: pre-wrap; margin: 0; max-width: 62ch; }
+  .notes__meta { display: flex; align-items: center; gap: 0.8rem; margin: 0.6rem 0 0; font-size: 12px; color: var(--muted); }
+  .todo .tag { font-family: var(--mono); font-size: 11px; padding: 0 0.45rem; border: 1px solid var(--line); border-radius: 3px; }

@@ -1,0 +1,16 @@
+{
+  "name": "@raymesh/client-box",
+  "version": "1.0.0",
+  "description": "A jobs list + add/update box + photos that a client ticks, edits and writes into from a phone. One copy of the code; every site keeps its own content.",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./server": "./server/index.js",
+    "./render": "./html/render.js",
+    "./strings": "./html/strings.js",
+    "./astro": "./astro/ClientBox.astro",
+    "./client-box.js": "./html/client-box.js",
+    "./client-box.css": "./html/client-box.css"
+  },
+  "peerDependencies": { "@anthropic-ai/sdk": ">=0.100" }
+}

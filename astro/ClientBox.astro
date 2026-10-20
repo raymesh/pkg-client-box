@@ -1,0 +1,15 @@
+---
+// client-box · Astro component. Same markup as html/render.js, plus the styles and the script.
+//   <ClientBox base="/delivery/sandra" lang="en" jobs={client.todos.map(...)} />
+// The site mounts the five endpoints under `base` with server/index.js.
+import { renderClientBox } from '../html/render.js';
+import css from '../html/client-box.css?raw';
+import js from '../html/client-box.js?raw';
+
+interface Props { base: string; lang?: 'en' | 'es'; jobs?: { id: string; text: string; added: string; tags?: { label: string; accent?: boolean }[] }[]; strings?: Record<string, unknown> }
+const { base, lang = 'en', jobs = [], strings = {} } = Astro.props;
+const html = renderClientBox({ base, lang, jobs, strings });
+---
+<Fragment set:html={html} />
+<style is:global set:html={css}></style>
+<script is:inline set:html={js}></script>
